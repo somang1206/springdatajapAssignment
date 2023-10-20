@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>강아지 번호</th>
+        <th>강아지 이름</th>
+        <th>강아지 생일</th>
+        <th>강아지 성별</th>
+        <th>강아지 몸무게</th>
+        <th>강아지 중성화 여부</th>
+        <th>강아지 소개</th>
+        <th>강아지 </th>
+        <th>주인 번호</th>
+    </tr>
+
+    <tr th:each="pet : ${petList}">
+        <td th:text="${pet.petCode}"></td>
+        <td th:text="${pet.petNick}"></td>
+        <td th:text="${pet.petKind}"></td>
+        <td th:text="${pet.petBirth}"></td>
+        <td th:text="${pet.petGender}"></td>
+        <td th:text="${pet.petWeight}"></td>
+        <td th:text="${pet.petNeutered}"></td>
+        <td th:text="${pet.petIntroduce}"></td>
+        <td th:text="${pet.refMemCode}"></td>
+    </tr>
+</table>
+</body>
+</html>
