@@ -1,10 +1,13 @@
 package com.ohgiraffers.pet.entity;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "pet_info")
+@Builder(toBuilder = true)
 public class Pet {
     @Id
     @Column(name = "pet_code")

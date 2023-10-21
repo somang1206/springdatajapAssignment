@@ -57,4 +57,24 @@ public class PetService {
         petRepository.save(modelMapper.map(newPet, Pet.class));
         System.out.println("등록!" + newPet);
     }
+
+    @Transactional
+    public void modifyPet(PetDTO modifyPet) {
+        Pet foundPet = petRepository.findById(modifyPet.getPetCode()).orElseThrow(IllegalArgumentException::new);
+
+        foundPet = foundPet.toBuilder().petNick(modifyPet.getPetNick()).build();
+    }
+
+    @Transactional
+    public void deletePet(Integer petCode) {
+        petRepository.deleteById(petCode);
+    }
+
+    public List<PetDTO> findByPetWeight(float petWeight) {
+        List<Pet> petList = petRepository.findByPetWeightGreaterThan(petWeight, Sort.by("petWeight").descending());
+
+        return petList.stream()
+                .map(pet -> modelMapper.map(pet, PetDTO.class))
+                .collect(Collectors.toList());
+    }
 }

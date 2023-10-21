@@ -5,6 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+    <h1>[[${petWeight}]]kg을 초과하는 강아지들</h1>
 
+    <table>
+        <tr>
+            <th>메뉴번호</th>
+            <th>메뉴이름</th>
+            <th>메뉴가격</th>
+            <th>카테고리코드</th>
+            <th>판매상태</th>
+        </tr>
+
+        <tr th:each="pet : ${petList}">
+            <th th:text="${pet.petCode}"></th>
+            <th th:text="${pet.petNick}"></th>
+            <th th:text="${pet.petKind}"></th>
+            <th th:text="${pet.petBirth}"></th>
+            <th th:text="${pet.petGender}"></th>
+            <th th:text="${pet.petWeight}"></th>
+            <th th:text="${pet.petNeutered}"></th>
+            <th th:text="${pet.petIntroduce}"></th>
+            <th th:text="${pet.refMemCode}"></th>
+        </tr>
+    </table>
 </body>
 </html>

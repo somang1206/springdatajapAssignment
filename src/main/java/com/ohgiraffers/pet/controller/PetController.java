@@ -38,6 +38,9 @@ public class PetController {
         return "pet/list";
     }
 
+    @GetMapping("/regist")
+    public void registPage() {}
+
     @GetMapping(value = "/refMemCode", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public List<MemberDTO> findMemCodeList() {
@@ -49,5 +52,39 @@ public class PetController {
         petService.registNewPet(petDTO);
         System.out.println(petDTO);
         return "redirect:/pet/list";
+    }
+
+    @GetMapping("/modify")
+    public void modifyPage(){}
+
+    @PostMapping("/modify")
+    public String modifyPet(PetDTO modifyPet) {
+        petService.modifyPet(modifyPet);
+        return "redirect:/pet/" + modifyPet.getPetCode();
+    }
+
+
+    @GetMapping("/delete")
+    public void deletePage(){}
+
+    @PostMapping("/delete")
+    public String deletePet(@RequestParam Integer petCode){
+        petService.deletePet(petCode);
+
+        return "redirect:/pet/list";
+    }
+
+
+    @GetMapping("/querymethod")
+    public void queryMethodPage(){}
+
+    @GetMapping("/search")
+    public String findByPetWeight(@RequestParam float petWeight, Model model){
+        List<PetDTO> petList = petService.findByPetWeight(petWeight);
+
+        model.addAttribute("petList", petList);
+        model.addAttribute("petWeight", petWeight);
+
+        return "pet/searchResult";
     }
 }

@@ -44,8 +44,8 @@ public class Member {
     @Column(name = "mem_role")
     private String memRole;
 
-    @Column(name = "mem_auth")
-    private int memAuth;
+    @Column(name = "mail_auth")
+    private int mailAuth;
 
     @Column(name = "mail_key")
     private String mailKey;
@@ -55,7 +55,7 @@ public class Member {
 
     protected Member(){}
 
-    public Member(int memCode, String memId, String memPwd, String memName, Date memBirth, String memEmail, String memAdrs, String memAdrsDetail, Date memWithdrawal, int memDogGum, String memRole, int memAuth, String mailKey, Date banPeriod) {
+    public Member(int memCode, String memId, String memPwd, String memName, Date memBirth, String memEmail, String memAdrs, String memAdrsDetail, Date memWithdrawal, int memDogGum, String memRole, int mailAuth, String mailKey, Date banPeriod) {
         this.memCode = memCode;
         this.memId = memId;
         this.memPwd = memPwd;
@@ -67,7 +67,7 @@ public class Member {
         this.memWithdrawal = memWithdrawal;
         this.memDogGum = memDogGum;
         this.memRole = memRole;
-        this.memAuth = memAuth;
+        this.mailAuth = mailAuth;
         this.mailKey = mailKey;
         this.banPeriod = banPeriod;
     }
@@ -116,8 +116,8 @@ public class Member {
         return memRole;
     }
 
-    public int getMemAuth() {
-        return memAuth;
+    public int getMailAuth() {
+        return mailAuth;
     }
 
     public String getMailKey() {
@@ -144,7 +144,7 @@ public class Member {
                 ", memWithdrawal=" + memWithdrawal +
                 ", memDogGum=" + memDogGum +
                 ", memRole='" + memRole + '\'' +
-                ", memAuth=" + memAuth +
+                ", memAuth=" + mailAuth +
                 ", mailKey='" + mailKey + '\'' +
                 ", banPeriod=" + banPeriod +
                 '}';

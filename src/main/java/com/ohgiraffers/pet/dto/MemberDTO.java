@@ -15,7 +15,7 @@ public class MemberDTO {
     private Date memWithdrawal;
     private int memDogGum;
     private String memRole;
-    private int memAuth;
+    private int mailAuth;
     private String mailKey;
     private Date banPeriod;
 
@@ -23,7 +23,7 @@ public class MemberDTO {
     public MemberDTO() {
     }
 
-    public MemberDTO(int memCode, String memId, String memPwd, String memName, Date memBirth, String memEmail, String memAdrs, String memAdrsDetail, Date memWithdrawal, int memDogGum, String memRole, int memAuth, String mailKey, Date banPeriod) {
+    public MemberDTO(int memCode, String memId, String memPwd, String memName, Date memBirth, String memEmail, String memAdrs, String memAdrsDetail, Date memWithdrawal, int memDogGum, String memRole, int mailAuth, String mailKey, Date banPeriod) {
         this.memCode = memCode;
         this.memId = memId;
         this.memPwd = memPwd;
@@ -35,7 +35,7 @@ public class MemberDTO {
         this.memWithdrawal = memWithdrawal;
         this.memDogGum = memDogGum;
         this.memRole = memRole;
-        this.memAuth = memAuth;
+        this.mailAuth = mailAuth;
         this.mailKey = mailKey;
         this.banPeriod = banPeriod;
     }
@@ -128,12 +128,12 @@ public class MemberDTO {
         this.memRole = memRole;
     }
 
-    public int getMemAuth() {
-        return memAuth;
+    public int getMailAuth() {
+        return mailAuth;
     }
 
-    public void setMemAuth(int memAuth) {
-        this.memAuth = memAuth;
+    public void setMailAuth(int mailAuth) {
+        this.mailAuth = mailAuth;
     }
 
     public String getMailKey() {
@@ -166,7 +166,7 @@ public class MemberDTO {
                 ", memWithdrawal=" + memWithdrawal +
                 ", memDogGum=" + memDogGum +
                 ", memRole='" + memRole + '\'' +
-                ", memAuth=" + memAuth +
+                ", memAuth=" + mailAuth +
                 ", mailKey='" + mailKey + '\'' +
                 ", banPeriod=" + banPeriod +
                 '}';
