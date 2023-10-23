@@ -7,6 +7,8 @@ import com.ohgiraffers.pet.entity.Pet;
 import com.ohgiraffers.pet.repository.MemberRepository;
 import com.ohgiraffers.pet.repository.PetRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.config.Configuration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,7 @@ public class PetService {
     private final PetRepository petRepository;
 
     private final ModelMapper modelMapper;
+
 
     private final MemberRepository memberRepository;
 
