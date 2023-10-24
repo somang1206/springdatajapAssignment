@@ -1,45 +1,47 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>regist menu</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>나의 강아지를 등록해주세요!😎</h1>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regist menu</title>
+</head>
+<body>
+    <h1>나의 강아지를 등록해주세요!😎</h1>
 
-<!--    <form action="/pet/regist" method="post">-->
-<!--        <label>댕댕이 이름 : </label><input type="text" name="petNick">-->
-<!--        <label>댕댕이 종류 : </label><input type="text" name="petKind">-->
-<!--        <label>댕댕이 성별 : </label>-->
-<!--            <select name="petGender" id="petGender">-->
-<!--                <option value="male">남자</option>-->
-<!--                <option value="femail">여자</option>-->
-<!--            </select><br>-->
-<!--        <label>댕댕이 몸무게 : </label><input type="text" name="petWeight">-->
-<!--        <label>중성화 여부 : </label>-->
-<!--            <select name="petNeutered">-->
-<!--                <option value="Y">중성화 했음</option>-->
-<!--                <option value="N">중성화 안함</option>-->
-<!--            </select><br>-->
-<!--        <label>견주 코드 : </label>-->
-<!--            <select name="refMemCode" id="refMemCode"></select>-->
-<!--        <input type="submit" value="강아지 등록">-->
-<!--    </form>-->
+    <form action="/pet/regist" method="post">
+        <label>댕댕이 이름 : </label><input type="text" name="petNick">
+        <label>댕댕이 종류 : </label><input type="text" name="petKind">
+        <label>댕댕이 생일 :  </label><input type="date" name="petBirth">
+        <label>댕댕이 성별 : </label>
+            <select name="petGender" id="petGender">
+                <option value="male">남자</option>
+                <option value="female">여자</option>
+            </select><br>
+        <label>댕댕이 몸무게 : </label><input type="text" name="petWeight">
+        <label>중성화 여부 : </label>
+            <select name="petNeutered">
+                <option value="Y">중성화 했음</option>
+                <option value="N">중성화 안함</option>
+            </select><br>
+        <label>견주 코드 : </label>
+            <select name="refMemCode" id="refMemCode"></select>
+        <input type="submit" value="강아지 등록">
+    </form>
 
-<!--    <script>-->
-<!--        fetch('/pet/refMemCode')-->
-<!--            .then(res => res.json())-->
-<!--            .then(data => {-->
-<!--                const $refMemCode = document.getElementById('refMemCode');-->
+    <script>
+        fetch('/pet/refMemCode')
+            .then(res => res.json())
+            .then(data => {
+                const $refMemCode = document.getElementById('refMemCode');
 
-<!--                for(let index in data){-->
-<!--                    const $option = document.createElement('option');-->
-<!--                    $option.value = data[index].refMemCode;-->
-<!--                    $option.textContent = data[index].refMemCode;-->
+                for(let index in data){
+                    const $option = document.createElement('option');
+                    $option.value = data[index].memCode;
+                    $option.textContent = data[index].memCode;
 
-<!--                    $refMemCode.appendChild($option);-->
-<!--                }-->
-<!--            })-->
-<!--    </script>-->
-<!--</body>-->
-<!--</html>-->
+                    $refMemCode.appendChild($option);
+                }
+            })
+
+    </script>
+</body>
+</html>

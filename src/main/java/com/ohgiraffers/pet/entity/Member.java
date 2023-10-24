@@ -1,5 +1,8 @@
 package com.ohgiraffers.pet.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,6 +25,7 @@ public class Member {
 
     @Column(name = "mem_name")
     private String memName;
+
 
     @Column(name = "mem_birth")
     private Date memBirth;

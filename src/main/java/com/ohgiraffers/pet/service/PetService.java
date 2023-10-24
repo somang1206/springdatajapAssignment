@@ -20,10 +20,7 @@ import java.util.stream.Collectors;
 public class PetService {
 
     private final PetRepository petRepository;
-
     private final ModelMapper modelMapper;
-
-
     private final MemberRepository memberRepository;
 
 
@@ -47,25 +44,26 @@ public class PetService {
                 .collect(Collectors.toList());
     }
 
+
     public List<MemberDTO> findAllMemCode() {
         List<Member> memCodeList = memberRepository.findAllMemCode();
         return memCodeList.stream()
-                .map(refmemcode -> modelMapper.map(refmemcode, MemberDTO.class))
+                .map(member -> modelMapper.map(member, MemberDTO.class))
                 .collect(Collectors.toList());
     }
 
 
     @Transactional
-    public void registNewPet(PetDTO newPet) {
-        petRepository.save(modelMapper.map(newPet, Pet.class));
-        System.out.println("등록!" + newPet);
+    public void registNewPet(PetDTO petDTO) {
+        System.out.println("등록!" + petDTO);
+        petRepository.save(modelMapper.map(petDTO, Pet.class));
     }
 
     @Transactional
     public void modifyPet(PetDTO modifyPet) {
         Pet foundPet = petRepository.findById(modifyPet.getPetCode()).orElseThrow(IllegalArgumentException::new);
 
-        foundPet = foundPet.toBuilder().petNick(modifyPet.getPetNick()).build();
+        foundPet = foundPet.petNick(modifyPet.getPetNick()).builder();
     }
 
     @Transactional

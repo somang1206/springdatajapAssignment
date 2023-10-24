@@ -48,9 +48,10 @@ public class PetController {
     }
 
     @PostMapping("/regist")
-    public String registNewPet(PetDTO petDTO){
+    public String registNewPet(@ModelAttribute("PetDTO") PetDTO petDTO){
+        System.out.println("컨트롤러petDTO : " + petDTO);
         petService.registNewPet(petDTO);
-        System.out.println(petDTO);
+
         return "redirect:/pet/list";
     }
 
